@@ -1,5 +1,6 @@
 ﻿using ImageMagick;
 using System.Drawing.Drawing2D;
+using System.Reflection;
 
 namespace AppForm{
 public class ConverterForm : Form {
@@ -10,6 +11,8 @@ public class ConverterForm : Form {
     public ConverterForm(){
         Text = "Tv Head Image Converter v1.0";
         ClientSize = new Size(425, 282);
+        Stream ico = LoadDLL();
+        Icon = new Icon(ico);
 
         TableLayoutPanel top = new TableLayoutPanel{Dock = DockStyle.Fill, ColumnCount=1, RowCount=2};
         top.RowStyles.Add(new RowStyle(SizeType.Percent, 35f));
@@ -131,6 +134,12 @@ public class ConverterForm : Form {
                 }
             }
         }
+    }
+
+    private Stream LoadDLL(){
+        string ico_resource = "ImageToTvHeadBMP.resources.icon.ico";
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        return assembly.GetManifestResourceStream(ico_resource)!;
     }
 
     [STAThread]

@@ -8,12 +8,14 @@
     <UseWindowsForms>true</UseWindowsForms>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
+    <ApplicationIcon>resources\icon.ico</ApplicationIcon>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract> <!-- slam literally every file into the exe -->
     <NoWarn>NU1701</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Magick.NET-Q8-AnyCPU" Version="14.2.0" />
+    <EmbeddedResource Include="resources\icon.ico" />
   </ItemGroup>
 
 </Project>
